@@ -45,17 +45,12 @@ function registerUser(req, res){
   }
 
 
-
-
 function login(registerUserQuery, res){
-
-
 }
 
 //sends a response created out of the specified parameters to the client.
 //The typeOfCall is the purpose of the client's api call
 function sendResponse(res, message, error) {
-
         res
         .status(error !== null ? error !== null ? 400 : 200 : 400)
         .json({

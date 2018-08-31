@@ -5,12 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
     "morgan": "^1.9.0",
-    "mysql": "^2.13.0",
+    "mysql": "^2.16.0",
     "node-oauth2-server": "^2.4.0",
-    "winston": "^2.4.2"
+    "swig": "^1.4.2",
+    "winston": "^2.4.2",
+    "consolidate": "^0.14.1"
   },
   "devDependencies": {},
   "scripts": {

@@ -12,8 +12,19 @@ const express = require('express')
 const expressApp = express()
 const logger = require('winston')
 const morgan = require('morgan');
+const path = require('path');
+const cons = require('consolidate');
+const swig = require('swig');
 
 expressApp.use(morgan('dev'));
+
+// view engine setup
+expressApp.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
+expressApp.set('view engine', 'html');
+expressApp.engine('.html', cons.swig);
+
+expressApp.use(express.static(path.join(__dirname, 'public')));
 
 expressApp.oauth = oAuth2Server({
   model: oAuthModel,
@@ -53,10 +64,12 @@ expressApp.use('/restrictedArea', restrictedAreaRoutes)
 
 expressApp.get('/login', (req,res) => {
   //render login form
-  res.json({response:"Login HTML for Get request"});
+  res.render("login.html");
+  //res.json({response:"Login HTML for Get request"});
 });
 
 expressApp.use(function (err, req, res, next) {
+  console.log("OAuth authorization error");
   //If oauth authorization error
   if (err instanceof OAuthError) {
     //logger.log('info', err); // pass only oauth errors to winston

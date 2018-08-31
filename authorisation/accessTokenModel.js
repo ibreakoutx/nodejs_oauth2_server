@@ -35,9 +35,18 @@ we can just create an empty client with all null values.Because the client is a 
   as no errors can occur due to the aforemtioned hardcoding */
 function getClient(clientID, clientSecret, callback){
 
+/*
   const client = {
     clientID,
     clientSecret,
+    grants: null,
+    redirectUris: null
+  }
+*/
+
+  const client = {
+    clientID:null,
+    clientSecret:null,
     grants: null,
     redirectUris: null
   }
